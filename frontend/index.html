@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3 Object Storage</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="logo">ObjectStorage <span class="badge">PRO</span></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search objects...">
+            </div>
+        </header>
+
+        <main>
+            <aside class="sidebar">
+                <h3>Buckets <button id="createBucketBtn">+</button></h3>
+                <ul id="bucketList">
+                    <!-- Buckets injected here -->
+                </ul>
+            </aside>
+
+            <section class="content">
+                <div class="breadcrumb" id="breadcrumb">Select a bucket</div>
+
+                <div class="actions-bar" id="actionsBar" style="display:none;">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="showVersionsToggle">
+                        <span class="slider"></span>
+                        <span class="label-text">Show Versions</span>
+                    </label>
+                    <button class="btn-primary" id="uploadBtn">Upload File</button>
+                </div>
+
+                <div class="table-container">
+                    <table id="objectTable">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Version ID</th>
+                                <th>Size</th>
+                                <th>Last Modified</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="objectList">
+                            <!-- Objects injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- Login Overlay -->
+        <div id="loginOverlay" class="modal-overlay">
+            <div class="modal">
+                <h3>Login to ObjectStorage</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <input type="text" id="loginUsername" placeholder="Username"
+                        style="padding: 10px; background: #0f172a; border: 1px solid #334155; color: white; border-radius: 4px;">
+                    <input type="password" id="loginPassword" placeholder="Password"
+                        style="padding: 10px; background: #0f172a; border: 1px solid #334155; color: white; border-radius: 4px;">
+                    <button id="loginBtn" class="btn-primary" style="margin-top: 10px;">Login</button>
+                </div>
+                <p id="loginError" style="color:var(--danger); margin-top: 10px; display: none;">Invalid credentials</p>
+                <p style="color:var(--text-secondary); margin-top: 20px; font-size: 0.8rem;">Default: admin / password
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="modalOverlay" class="modal-overlay hidden">
+        <div class="modal">
+            <h3 id="modalTitle">Title</h3>
+            <div id="modalContent"></div>
+            <div class="modal-actions">
+                <button id="modalCancel" class="btn-secondary">Cancel</button>
+                <button id="modalConfirm" class="btn-primary">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

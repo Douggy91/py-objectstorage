@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlmodel
+python-multipart
+aiofiles
+xmltodict
+boto3
+requests
+pydantic
